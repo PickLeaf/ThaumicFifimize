@@ -3,16 +3,11 @@ package com.pickleaf.thaumic_fifimize.core;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.*;
 
-import com.pickleaf.thaumic_fifimize.Config;
-
 public class SilverLeavesDropChanceTransformer implements IClassTransformer {
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
         if (transformedName.equals("thaumcraft.common.blocks.world.plants.BlockLeavesTC")) {
-
-            // System.out.println("[ThaumicFifimize] Transforming: " + transformedName);
-
             try {
                 ClassReader cr = new ClassReader(basicClass);
                 ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
@@ -20,8 +15,6 @@ public class SilverLeavesDropChanceTransformer implements IClassTransformer {
                 cr.accept(cv, 0);
                 return cw.toByteArray();
             } catch (Exception e) {
-                // System.err.println("[ThaumicFifimize] Failed to transform class: " +
-                // transformedName);
                 e.printStackTrace();
             }
         }
@@ -38,12 +31,9 @@ public class SilverLeavesDropChanceTransformer implements IClassTransformer {
         public MethodVisitor visitMethod(int access, String name, String desc,
                 String signature, String[] exceptions) {
             MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
-
             if (name.equals("func_176232_d")) {
-                // System.out.println("[ThaumicFifimize] Found target method: " + name);
                 return new DropChanceMethodVisitor(Opcodes.ASM5, mv);
             }
-
             return mv;
         }
     }

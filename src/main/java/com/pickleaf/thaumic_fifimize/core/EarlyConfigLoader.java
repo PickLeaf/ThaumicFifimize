@@ -15,18 +15,23 @@ public class EarlyConfigLoader {
                 configDir.mkdirs();
             }
             File configFile = new File(configDir, ThaumicFifimize.MODID + ".cfg");
-            if (!configFile.exists()){
+            if (!configFile.exists()) {
                 configFile.createNewFile();
             }
-
             Configuration cfg = new Configuration(configFile);
-            Config.SILVERSAPLING_DROPCHANCE = cfg.getInt("leavesPerSilverSapling", Configuration.CATEGORY_GENERAL, 100,
-                    1, Integer.MAX_VALUE, "平均多少个树叶掉落一个银树树苗 Vanilla:200");
+            load(cfg);
             if (cfg.hasChanged())
                 cfg.save();
         } catch (Exception e) {
             System.err.println("[ThaumicFifimize] Failed to load early config: " + e.getMessage());
         }
 
+    }
+
+    private static void load(Configuration cfg) {
+        Config.SILVERSAPLING_DROPCHANCE = cfg.getInt("leavesPerSilverSapling", Configuration.CATEGORY_GENERAL, 100,
+                1, Integer.MAX_VALUE, "平均多少个树叶掉落一个银树树苗 Vanilla:200");
+        Config.FIX_SEALS_INTERACT_DOUBLE_CHEST = cfg.getBoolean("fixSealsInteractDoubleChest", Configuration.CATEGORY_GENERAL, true,
+                "修复印记与大箱子交互时只作用于一半的问题");
     }
 }
