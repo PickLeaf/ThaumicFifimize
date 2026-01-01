@@ -23,7 +23,7 @@ package com.pickleaf.thaumic_fifimize.common.item;
 import java.util.List;
 
 import com.pickleaf.thaumic_fifimize.common.IHasName;
-import com.pickleaf.thaumic_fifimize.common.Items;
+import com.pickleaf.thaumic_fifimize.common.ItemsTF;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -53,7 +53,7 @@ public class ItemSealCopier extends Item implements IHasName, ISealDisplayer {
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
         if (stack.hasTagCompound() && stack.getTagCompound().hasKey("sealType", NBT.TAG_STRING)) {
             tooltip.add(StatCollector.translateToLocalFormatted("thaumic_fifimize.text.stored_seal", GolemHelper.getSealStack(stack.getTagCompound().getString("sealType")).getDisplayName()));
-        }ｔｏｙｎ
+        }
     }
 
     @Override
@@ -61,7 +61,7 @@ public class ItemSealCopier extends Item implements IHasName, ISealDisplayer {
         if (player.isSneaking()) {
             player.getHeldItem().setTagCompound(null);
             world.playSoundEffect(player.posX, player.posY, player.posZ, "thaumcraft:scan", 0.5F, 1F);
-            return new ItemStack(Items.sealCopier, 1, 0);
+            return new ItemStack(ItemsTF.sealCopier, 1, 0);
         } else
             return super.onItemRightClick(itemStack, world, player);
     }

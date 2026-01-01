@@ -8,7 +8,7 @@ public class CommonProxy
 {
     public void preInit(FMLPreInitializationEvent event)
     {
-        Items.init();
+        ItemsTF.init();
     }
 
     public void init(FMLInitializationEvent event)
@@ -18,6 +18,7 @@ public class CommonProxy
 
     public void postInit(FMLPostInitializationEvent event)
     {
-
+        RecipesTF.init();
+        ResearchsTF.init();
     }
 }

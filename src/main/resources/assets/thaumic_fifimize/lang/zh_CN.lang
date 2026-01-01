@@ -2,3 +2,6 @@ itemGroup.thaumic_fifimize=神秘第五小化
 
 item.thaumic_fifimize.seal_copier.name=印记拓印器
 thaumic_fifimize.text.stored_seal=存储印记：%s
+tc.research_name.SEAL_COPIER=印记拓印器
+tc.research_text.SEAL_COPIER=世上没有两片一样的树叶
+thaumic_fifimize.research_page.SEAL_COPIER.0=我计划制造一种基础的印记拓印装置。我只需要按我所需配置好一个印记，然后用印记拓印器右键单击它，即可复制该印记的设置。接下来我只需要右击其它要应用该设置的印记，便可以快速完成配置。如果我想清除拓印器所记忆的印记设置，我只需在潜行时右键单击，然后我便可以继续复制新的设置。看起来我的印记拓印器无法与其他人的印记进行交互。如果我要与其他神秘使合作，我应该牢记这一点。

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import com.pickleaf.thaumic_fifimize.ThaumicFifimize;
 import com.pickleaf.thaumic_fifimize.common.item.*;
 
-public class Items {
+public class ItemsTF {
     public static Item sealCopier;
 
     public static void init() {

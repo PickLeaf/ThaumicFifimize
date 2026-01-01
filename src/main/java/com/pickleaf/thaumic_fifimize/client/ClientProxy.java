@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import com.pickleaf.thaumic_fifimize.common.CommonProxy;
-import com.pickleaf.thaumic_fifimize.common.Items;
+import com.pickleaf.thaumic_fifimize.common.ItemsTF;
 
 
 public class ClientProxy extends CommonProxy
@@ -13,7 +13,7 @@ public class ClientProxy extends CommonProxy
     public void preInit(FMLPreInitializationEvent event)
     {
         super.preInit(event);
-        Items.initRenders();
+        ItemsTF.initRenders();
     }
 
     @Override
