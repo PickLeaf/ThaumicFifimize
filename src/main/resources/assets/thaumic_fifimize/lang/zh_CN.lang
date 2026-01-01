@@ -1,0 +1,4 @@
+itemGroup.thaumic_fifimize=神秘第五小化
+
+item.thaumic_fifimize.seal_copier.name=印记拓印器
+thaumic_fifimize.text.stored_seal=存储印记：%s

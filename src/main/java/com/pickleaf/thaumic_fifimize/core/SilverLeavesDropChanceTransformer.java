@@ -1,7 +1,9 @@
-package com.pickleaf.thaumic_fifimize;
+package com.pickleaf.thaumic_fifimize.core;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.*;
+
+import com.pickleaf.thaumic_fifimize.Config;
 
 public class SilverLeavesDropChanceTransformer implements IClassTransformer {
 

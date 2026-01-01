@@ -1,0 +1,4 @@
+itemGroup.thaumic_fifimize=Thaumic Fifimize
+
+item.thaumic_fifimize.seal_copier.name=Seal Copier
+thaumic_fifimize.text.stored_seal=Stored Seal: %s

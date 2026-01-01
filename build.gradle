@@ -47,6 +47,8 @@ dependencies {
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+    compile fileTree('libs/thaumcraft-5-api') // adds thaumcraft to the dev env
+    // your need download and put thaumcraft-5-api-5.2.4.jar into the libs folder by yourself
 
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
