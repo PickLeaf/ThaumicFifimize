@@ -3,3 +3,5 @@
 <br>The probability of Silverwood Leaves falling from Saplings has doubled and can be adjusted in the configuration file.
 - 向下移植了神秘进阶的<a href="https://www.mcmod.cn/item/273848.html">印记拓印器</a>
 <br>Porting back Seal Copier from Thaumic Augmentation
+- 修复了印记无法与大箱子交互的漏洞
+<br>Fix the bug of Seal interact wrong with Double Chests
