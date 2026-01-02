@@ -1,26 +1,10 @@
 package com.pickleaf.thaumic_fifimize.core;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
 
 import org.objectweb.asm.*;
 
 public class InventoryUtilsTransformer implements IClassTransformer {
-    public static IInventory hookMethod(IInventory inv) {
-        if (inv instanceof TileEntityChest) {
-            BlockPos pos = ((TileEntityChest) inv).getPos();
-            World world = ((TileEntityChest) inv).getWorld();
-            Block block = world.getBlockState(pos).getBlock();
-            if (block instanceof BlockChest)
-                inv = ((BlockChest) block).getLockableContainer(world, pos);
-        }
-        return inv;
-    }
+    
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -87,7 +71,7 @@ public class InventoryUtilsTransformer implements IClassTransformer {
             // invokestatic：调用静态方法hookMethod
             mv.visitMethodInsn(
                     Opcodes.INVOKESTATIC,
-                    "com/pickleaf/thaumic_fifimize/core/InventoryUtilsTransformer", // 包名+类名
+                    "com/pickleaf/thaumic_fifimize/core/HookHandler", // 包名+类名
                     "hookMethod", // 方法名
                     "(Lnet/minecraft/inventory/IInventory;)Lnet/minecraft/inventory/IInventory;", // 方法描述符
                     false // 非接口方法
