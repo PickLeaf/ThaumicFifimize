@@ -15,6 +15,7 @@ public class SilverLeavesDropChanceTransformer implements IClassTransformer {
                 cr.accept(cv, 0);
                 return cw.toByteArray();
             } catch (Exception e) {
+                System.err.println("[ThaumicFifimize] Failed to transform class: " + transformedName);
                 e.printStackTrace();
             }
         }
@@ -32,6 +33,7 @@ public class SilverLeavesDropChanceTransformer implements IClassTransformer {
                 String signature, String[] exceptions) {
             MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
             if (name.equals("func_176232_d")) {
+                // net/minecraft/block/BlockLeaves/getSaplingDropChance (Lnet/minecraft/block/state/IBlockState;)I
                 return new DropChanceMethodVisitor(Opcodes.ASM5, mv);
             }
             return mv;
