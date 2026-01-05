@@ -1,7 +1,15 @@
 itemGroup.thaumic_fifimize=Thaumic Fifimize
-
-item.thaumic_fifimize.seal_copier.name=Seal Copier
 thaumic_fifimize.text.stored_seal=Stored Seal: %s
+
 tc.research_name.SEAL_COPIER=Seal Copier
 tc.research_text.SEAL_COPIER=No two leaves are exactly alike.
 thaumic_fifimize.research_page.SEAL_COPIER.0=I have created plans for a basic seal copying device. I just need to configure one seal with the settings I need, then right click it with the copier. I then only need to right click every other seal I want to apply the settings to. If I want to clear the memory of the copier, I need to right click while sneaking. I can then copy new settings and continue.<BR>It seems that the seal copier is unable to interact with seals that were not placed by the owner. I should keep this in mind if I am working with other Thaumaturges.
+
+tc.research_name.PRIMORDIAL_PEARL_DUP=Duplicate Primordial Pearl
+tc.research_text.PRIMORDIAL_PEARL_DUP=Unbelievable
+thaumic_fifimize.research_page.PRIMORDIAL_PEARL_DUP.0=When you first crush the primordial crusher within the overlapping laws, stardust-like motes emerge between your fingers. They were not debris, but disintegrated order—moments peeled from the fabric of time. These motes refused to blend with common sense, yet resonated with the six primordial elements, weaving logic anew the instant they were infused.<BR>You witnessed the pearl's outline coalesce once more from nothingness: the same weight, the same whisper, as if the world tacitly approved this replication of itself.
+
+Translated with DeepL.com (free version)
+
+item.thaumic_fifimize.seal_copier.name=Seal Copier
+item.thaumic_fifimize.primordial_mote.name=Primordial Mote

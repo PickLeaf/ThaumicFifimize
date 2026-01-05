@@ -2,6 +2,7 @@ package com.pickleaf.thaumic_fifimize.common;
 
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -10,18 +11,27 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.pickleaf.thaumic_fifimize.ThaumicFifimize;
 import com.pickleaf.thaumic_fifimize.common.item.*;
+import com.pickleaf.thaumic_fifimize.Config;
 
 public class ItemsTF {
     public static Item sealCopier;
+    public static Item primordialMote;
 
     public static void init() {
-        sealCopier = initializeItem(new ItemSealCopier());
+        if (Config.ITEM_SEAL_COPIER)
+            sealCopier = initializeItem(new ItemSealCopier());
+        if (Config.PRIMORDIAL_PEARL_DUP)
+            primordialMote = initializeItem(new ItemPrimordialMote());
     }
 
     @SideOnly(Side.CLIENT)
     public static void initRenders() {
-        registerRender(sealCopier);
-        registerRender(sealCopier, 1, "_holding");
+        if (Config.ITEM_SEAL_COPIER) {
+            registerRender(sealCopier);
+            registerRender(sealCopier, 1, "_holding");
+        }
+        if (Config.PRIMORDIAL_PEARL_DUP)
+            registerRender(primordialMote);
     }
 
     public static Item initializeItem(Item item) {
@@ -53,7 +63,10 @@ public class ItemsTF {
     public static CreativeTabs CREATIVE_TAB = new CreativeTabs(ThaumicFifimize.MODID) {
         @Override
         public Item getTabIconItem() {
-            return sealCopier;
+            if (Config.ITEM_SEAL_COPIER)
+                return sealCopier;
+            else
+                return Item.getItemFromBlock(Blocks.barrier);
         }
     };
 }
