@@ -5,3 +5,5 @@
 <br>Porting back Seal Copier from Thaumic Augmentation
 - 修复了印记无法与大箱子交互的漏洞
 <br>Fix the bug of Seal interact wrong with Double Chests
+- 添加了元始珍珠的复制方法
+<br>Added the Duplicate method for Primordial Pearl
