@@ -44,6 +44,7 @@ public class CountItemList {
             }
             if (equal(items[i], stackVar)) {
                 counts[i] += count;
+                break;
             }
         }
     }
@@ -70,6 +71,10 @@ public class CountItemList {
         for (int i = 0; i < 9; i++) {
             if (equal(items[i], stackVar)) {
                 items[i] = null;
+                for (int j = i; j < 8; j++) {
+                    items[i] = items[i + 1];
+                }
+                return;
             }
         }
     }
@@ -93,7 +98,7 @@ public class CountItemList {
         System.out.println("[Thaumic Fifimize] ");
         for (int i = 0; i < 9; i++) {
             if (items[i] == null)
-                System.out.println("null " + counts[i]);
+                return;
             System.out.println(items[i].getDisplayName() + " " + counts[i]);
         }
     }
