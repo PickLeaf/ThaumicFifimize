@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import com.pickleaf.thaumic_fifimize.common.CommonProxy;
 
-@Mod(modid = ThaumicFifimize.MODID, version = ThaumicFifimize.VERSION, name = ThaumicFifimize.NAME, dependencies = "required-after:Thaumcraft", acceptedMinecraftVersions = "1.8.9")
+@Mod(modid = ThaumicFifimize.MODID, version = ThaumicFifimize.VERSION, name = ThaumicFifimize.NAME, dependencies = "required-after:Thaumcraft@[5.2,);after:Automagy", acceptedMinecraftVersions = "1.8.9")
 public class ThaumicFifimize {
     public static final String MODID = "thaumic_fifimize";
     public static final String VERSION = "0.4";

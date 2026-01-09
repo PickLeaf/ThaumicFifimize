@@ -1,4 +1,9 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.referencedLibraries": [
+        "libs/**/*.jar",
+        "libs/Automagy-1.8.9-2.0.3.jar",
+        "libs/Thaumcraft-1.8.9-5.2.4.jar",
+    ]
 }
