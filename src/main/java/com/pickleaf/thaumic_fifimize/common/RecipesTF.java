@@ -2,6 +2,8 @@ package com.pickleaf.thaumic_fifimize.common;
 
 import com.pickleaf.thaumic_fifimize.Config;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -9,11 +11,14 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.api.golems.GolemHelper;
+import thaumcraft.api.blocks.BlocksTC;
 
 public class RecipesTF {
     public static InfusionRecipe sealCopier;
     public static CrucibleRecipe primordialMote;
     public static InfusionRecipe primordialPearl;
+    public static InfusionRecipe sealArcaneCraft;
 
     public static void init() {
         initializeInfusionRecipes();
@@ -67,5 +72,22 @@ public class RecipesTF {
                             new ItemStack(ItemsTC.shard, 1, 6),
                             new ItemStack(ItemsTC.shard, 1, 7), });
         }
+        if (Config.SEAL_ARCANE_CRAFT)
+            sealArcaneCraft = ThaumcraftApi.addInfusionCraftingRecipe("SEAL_ARCANE_CRAFT",
+                    GolemHelper.getSealStack(SealsTF.sealArcaneCraft.getKey()), 3,
+                    (new AspectList())
+                            .add(Aspect.MIND, 16)
+                            .add(Aspect.CRAFT, 16)
+                            .add(Aspect.DESIRE, 8)
+                            .add(Aspect.EXCHANGE, 4)
+                            .add(Aspect.SENSES, 4),
+                    GolemHelper.getSealStack("Thaumcraft:use"),
+                    new Object[] {
+                            new ItemStack(BlocksTC.arcaneWorkbench),
+                            new ItemStack(Item.getItemFromBlock(Blocks.crafting_table)),
+                            new ItemStack(ItemsTC.wand),
+                            new ItemStack(ItemsTC.salisMundus),
+                            new ItemStack(ItemsTC.salisMundus),
+                            new ItemStack(ItemsTC.salisMundus) });
     }
 }

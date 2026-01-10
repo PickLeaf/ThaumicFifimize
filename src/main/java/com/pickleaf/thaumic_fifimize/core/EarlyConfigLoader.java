@@ -38,5 +38,7 @@ public class EarlyConfigLoader {
                 "启用元始珍珠复制方法");
         Config.ITEM_SEAL_COPIER = cfg.getBoolean("enableItemSealCopier", Config.CATEGORY_ITEM, true,
                 "启用物品印记拓印器");
+        Config.SEAL_ARCANE_CRAFT = cfg.getBoolean("enableSealArcaneCraft", Config.CATEGORY_ITEM, true,
+                "启用物品奥数合成印记");
     }
 }

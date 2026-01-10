@@ -4,6 +4,7 @@ import com.pickleaf.thaumic_fifimize.Config;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.golems.GolemHelper;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
 
@@ -19,7 +20,8 @@ public class ResearchsTF {
                             new ItemStack(ItemsTF.sealCopier) }))
                     .setPages(
                             new ResearchPage[] {
-                                    new ResearchPage("thaumic_fifimize.research_page.SEAL_COPIER.0"),
+                                    new ResearchPage(
+                                            "thaumic_fifimize.research_page.SEAL_COPIER.0"),
                                     new ResearchPage(RecipesTF.sealCopier) })
                     .setParents(
                             new String[] { "CONTROLSEALS", "INFUSION" })
@@ -38,11 +40,31 @@ public class ResearchsTF {
                             new ItemStack(ItemsTF.primordialMote) }))
                     .setPages(
                             new ResearchPage[] {
-                                    new ResearchPage("thaumic_fifimize.research_page.PRIMORDIAL_PEARL_DUP.0"),
+                                    new ResearchPage(
+                                            "thaumic_fifimize.research_page.PRIMORDIAL_PEARL_DUP.0"),
                                     new ResearchPage(RecipesTF.primordialMote),
                                     new ResearchPage(RecipesTF.primordialPearl) })
                     .setParents(
                             new String[] { "PRIMPEARL" })
+                    .registerResearchItem();
+        if (Config.SEAL_ARCANE_CRAFT)
+            (new ResearchItem("SEAL_ARCANE_CRAFT", "GOLEMANCY",
+                    new AspectList()
+                            .add(Aspect.DESIRE, 8)
+                            .add(Aspect.CRAFT, 6)
+                            .add(Aspect.SENSES, 4)
+                            .add(Aspect.WATER, 4)
+                            .add(Aspect.ORDER, 4),
+                    -4, 8, 1,
+                    new Object[] {
+                            GolemHelper.getSealStack(SealsTF.sealArcaneCraft.getKey()) }))
+                    .setPages(
+                            new ResearchPage[] {
+                                    new ResearchPage(
+                                            "thaumic_fifimize.research_page.SEAL_ARCANE_CRAFT.0"),
+                                    new ResearchPage(RecipesTF.sealArcaneCraft) })
+                    .setParents(
+                            new String[] { "SEALUSE", "PRIMPEARL" })
                     .registerResearchItem();
     }
 

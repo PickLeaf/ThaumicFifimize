@@ -9,6 +9,10 @@ tc.research_name.PRIMORDIAL_PEARL_DUP=元始珍珠复制
 tc.research_text.PRIMORDIAL_PEARL_DUP=难以置信
 thaumic_fifimize.research_page.PRIMORDIAL_PEARL_DUP.0=当你第一次将元始杵在重叠的法则中碾碎，星尘般的微粒在指间浮现。它并非碎屑，而是解离的秩序——如同从完整的时间中剥落下来的瞬间。这些微粒拒绝融入常理，却愿与六种元始要素共振，在注入的刹那重织逻辑。<BR>你目睹珍珠的轮廓从虚无中再度凝结：相同的重量，相同的低语，仿佛世界默许了这次对自身的复刻。
 
+tc.research_name.SEAL_ARCANE_CRAFT=操控印记：奥术合成
+tc.research_text.SEAL_ARCANE_CRAFT=一加一等于⑨
+thaumic_fifimize.research_page.SEAL_ARCANE_CRAFT.0=这个印记可以贴在奥术合成台上使用，它将指导傀儡合成奥术合成台中的配方。<BR>你需要在奥术工作台旁边放一个箱子，在箱子中提供配方的原材料。奥术工作台1格方块内的盔甲架穿着的装备将会为合成提供魔力减免。<BR>当然奥术工作台中也需要放一根法杖。
+
 item.thaumic_fifimize.seal_copier.name=印记拓印器
 item.thaumic_fifimize.primordial_mote.name=元始尘埃
 item.seal.arcane_craft.name=操控印记：奥术合成

@@ -9,6 +9,12 @@ tc.research_name.PRIMORDIAL_PEARL_DUP=Duplicate Primordial Pearl
 tc.research_text.PRIMORDIAL_PEARL_DUP=Unbelievable
 thaumic_fifimize.research_page.PRIMORDIAL_PEARL_DUP.0=When you first crush the primordial crusher within the overlapping laws, stardust-like motes emerge between your fingers. They were not debris, but disintegrated order—moments peeled from the fabric of time. These motes refused to blend with common sense, yet resonated with the six primordial elements, weaving logic anew the instant they were infused.<BR>You witnessed the pearl's outline coalesce once more from nothingness: the same weight, the same whisper, as if the world tacitly approved this replication of itself.
 
+tc.research_name.SEAL_ARCANE_CRAFT=Control Seal: Arcane Craft
+tc.research_text.SEAL_ARCANE_CRAFT=One plus one equals ⑨
+thaumic_fifimize.research_page.SEAL_ARCANE_CRAFT.0=This seal can be applied to an arcane workbench, where it will guide the golem in crafting recipes stored within the workbench.<BR>You must place a chest next to the arcane workbench, containing the ingredients for the recipes. Armor worn on the armor stand within one block's range of the arcane workbench will provide vis discount during crafting.<BR>Naturally, a wand must also be placed within the arcane workbench.
+
+Translated with DeepL.com (free version)
+
 Translated with DeepL.com (free version)
 
 item.thaumic_fifimize.seal_copier.name=Seal Copier

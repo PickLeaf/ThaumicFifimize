@@ -153,9 +153,9 @@ public class SealArcaneCraft implements ISeal, IHasName {
       return invs;
    }
 
-   public void print(String s) {
-      System.out.println("[Thaumic Fifimize] " + s);
-   }
+   // public void print(String s) {
+   //    System.out.println("[Thaumic Fifimize] " + s);
+   // }
 
    public void tickSeal(World world, ISealEntity seal) {
       if (this.delay++ % 20 == 0) {
@@ -178,13 +178,13 @@ public class SealArcaneCraft implements ISeal, IHasName {
    }
 
    public boolean onTaskCompletion(World world, IGolemAPI golem, Task task) {
-      // 检查玩家是否完成配方所需研究
       InventoryCrafting cacheInv = getWorkbenchInventory(world, task.getPos());
       IArcaneRecipe cacheRecipe = getMatchingRecipe(world, cacheInv);
       if (cacheInv == null || cacheRecipe == null) {
          task.setSuspended(true);
          return false;
       }
+      // 检查玩家是否完成配方所需研究
       GameProfile profile = MinecraftServer.getServer().getPlayerProfileCache()
             .getProfileByUUID(UUID.fromString(getOwnerPlayerUUID(golem)));
       if (profile == null
@@ -211,13 +211,9 @@ public class SealArcaneCraft implements ISeal, IHasName {
             itemCountMap.merge(stack, count);
          }
       }
-      itemCountMap.print();
       // 从周围的箱子中获得将要被消耗物品
-      print("1");
       IInventory[] invs = getInv(world, task.getPos());
-      print("1.01");
       CountItemList itemCountMapDecrased = new CountItemList(itemCountMap);
-      print("1.02");
       for (IInventory inv : invs) {
          if (inv == null)
             continue;
@@ -225,20 +221,15 @@ public class SealArcaneCraft implements ISeal, IHasName {
             ItemStack stack = inv.getStackInSlot(a);
             if (stack == null)
                continue;
-            print("1.11");
             if (itemCountMapDecrased.contains(stack)) {
-               print("1.12");
                if (itemCountMapDecrased.get(stack) < 0)
                   break;
-               print("1.13");
                int count = stack.stackSize;
                itemCountMapDecrased.merge(stack, -count);
             }
          }
       }
-      print("1.2");
       // 检查物品是否足够
-      itemCountMapDecrased.print();
       {
          ItemStack[] items = itemCountMapDecrased.items;
          int[] counts = itemCountMapDecrased.counts;
@@ -252,16 +243,13 @@ public class SealArcaneCraft implements ISeal, IHasName {
             counts[i] = 0;
          }
       }
-      print("1.25");
       // 获得奥术工作台TileEntity
       TileEntity te = world.getTileEntity(task.getPos());
       if (te == null || !(te instanceof TileArcaneWorkbench)) {
-         print("1.27");
          task.setSuspended(true);
          return false;
       }
       TileArcaneWorkbench teAW = (TileArcaneWorkbench) te;
-      print("1.3");
       // 获得法杖
       ItemStack wadnStack = teAW.inventory.getStackInSlot(10);
       if (wadnStack == null) {
@@ -274,21 +262,15 @@ public class SealArcaneCraft implements ISeal, IHasName {
          return false;
       }
       IWand wand = (IWand) item;
-      print("2");
       // 获得魔力消耗
       AspectList aspects = cacheRecipe.getAspects();
-      print("2.31");
       if (aspects == null) {
-         print("2.32");
          aspects = cacheRecipe.getAspects(cacheInv);
-         print("2.33");
          if (aspects == null) {
-            print("AspectList Not Get Successfully");
             task.setSuspended(true);
             return false;
          }
       }
-      print("2.39");
       // 获得盔甲架装备并为本次合成创建临时假人玩家
       FakePlayer fakePlayer = FakePlayerFactory.get((WorldServer) world,
             new GameProfile(null, "FakeThaumcraftGolem"));
@@ -297,13 +279,10 @@ public class SealArcaneCraft implements ISeal, IHasName {
          double x = pos.getX();
          double y = pos.getY();
          double z = pos.getZ();
-         print("2.391");
          List<EntityArmorStand> armorStands = world.getEntitiesWithinAABB(
                EntityArmorStand.class, AxisAlignedBB.fromBounds(
                      x - radius, y - radius, z - radius, x + radius + 1, y + radius + 1, z + radius + 1));
-         print("2.392");
          for (EntityArmorStand armorStand : armorStands) {
-            print("2.393");
             fakePlayer.setCurrentItemOrArmor(1, armorStand.getEquipmentInSlot(1));
             fakePlayer.setCurrentItemOrArmor(2, armorStand.getEquipmentInSlot(2));
             fakePlayer.setCurrentItemOrArmor(3, armorStand.getEquipmentInSlot(3));
@@ -314,7 +293,6 @@ public class SealArcaneCraft implements ISeal, IHasName {
       // 检测法杖魔力
       if (wand.consumeAllVis(wadnStack, fakePlayer, aspects, false, true)) {
          // 傀儡获得配方输出
-         print("2.4");
          ItemStack result = cacheRecipe.getCraftingResult(cacheInv);
          if (result != null) {
             golem.holdItem(result.copy());
@@ -327,20 +305,16 @@ public class SealArcaneCraft implements ISeal, IHasName {
             return false;
          }
          // 消耗物品
-         print("3");
          for (IInventory inv : invs) {
             if (inv == null)
                break;
             for (int a = 0; a < inv.getSizeInventory(); a++) {
                // 别动这个循环！！！
-               print("3.1");
                ItemStack stack = inv.getStackInSlot(a);
                if (stack == null)
                   continue;
-               print("3.2");
                if (!itemCountMap.contains(stack))
                   continue;
-               print("3.3");
                if (stack.stackSize < itemCountMap.get(stack)
                      - itemCountMapDecrased.get(stack)) {
                   itemCountMapDecrased.merge(stack, stack.stackSize);
@@ -355,7 +329,6 @@ public class SealArcaneCraft implements ISeal, IHasName {
                }
             }
          }
-         print("4");
          // 消耗法杖魔力
          wand.consumeAllVis(wadnStack, fakePlayer, aspects, true, true);
          return true;
