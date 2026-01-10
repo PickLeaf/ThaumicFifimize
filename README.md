@@ -7,3 +7,5 @@
 <br>Fix the bug of Seal interact wrong with Double Chests
 - 添加了元始珍珠的复制方法
 <br>Added the Duplicate method for Primordial Pearl
+- 添加了奥术合成印记
+<br>Added Arcane Craft Seal
