@@ -13,6 +13,14 @@ tc.research_name.SEAL_ARCANE_CRAFT=操控印记：奥术合成
 tc.research_text.SEAL_ARCANE_CRAFT=一加一等于⑨
 thaumic_fifimize.research_page.SEAL_ARCANE_CRAFT.0=这个印记可以贴在奥术合成台上使用，它将指导傀儡合成奥术合成台中的配方。<BR>你需要在奥术工作台旁边放一个箱子，在箱子中提供配方的原材料。奥术工作台1格方块内的盔甲架穿着的装备将会为合成提供魔力减免。<BR>当然奥术工作台中也需要放一根法杖。
 
+tc.research_name.STONE_DUP=岩石复制
+tc.research_text.STONE_DUP=岩浆加水
+thaumic_fifimize.research_page.STONE_DUP.0=经过简单的试错，你很容易的使用要素复制了那些常见的岩石。
+
+tc.research_name.STONE_MANUFACTURE=世界基质制造
+tc.research_text.STONE_MANUFACTURE=魔法粉碎机
+thaumic_fifimize.research_page.STONE_MANUFACTURE.0=借助从凡夫俗子的造物中汲取的灵感，更复杂的世界基质被你制造了出来。
+
 item.thaumic_fifimize.seal_copier.name=印记拓印器
 item.thaumic_fifimize.primordial_mote.name=元始尘埃
 item.seal.arcane_craft.name=操控印记：奥术合成

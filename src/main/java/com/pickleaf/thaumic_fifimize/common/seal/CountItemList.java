@@ -93,13 +93,4 @@ public class CountItemList {
     public ItemStack[] itemSet() {
         return this.items;
     }
-
-    // public void print() {
-    //     System.out.println("[Thaumic Fifimize] ");
-    //     for (int i = 0; i < 9; i++) {
-    //         if (items[i] == null)
-    //             return;
-    //         System.out.println(items[i].getDisplayName() + " " + counts[i]);
-    //     }
-    // }
 }

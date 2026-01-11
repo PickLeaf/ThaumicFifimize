@@ -13,9 +13,13 @@ tc.research_name.SEAL_ARCANE_CRAFT=Control Seal: Arcane Craft
 tc.research_text.SEAL_ARCANE_CRAFT=One plus one equals ⑨
 thaumic_fifimize.research_page.SEAL_ARCANE_CRAFT.0=This seal can be applied to an arcane workbench, where it will guide the golem in crafting recipes stored within the workbench.<BR>You must place a chest next to the arcane workbench, containing the ingredients for the recipes. Armor worn on the armor stand within one block's range of the arcane workbench will provide vis discount during crafting.<BR>Naturally, a wand must also be placed within the arcane workbench.
 
-Translated with DeepL.com (free version)
+tc.research_name.STONE_DUP=Stone Duplication
+tc.research_text.STONE_DUP=Lava meet water
+thaumic_fifimize.research_page.STONE_DUP.0=With a bit of trial and error, you can easily add the aspect to replicate those common stones.
 
-Translated with DeepL.com (free version)
+tc.research_name.STONE_MANUFACTURE=Base Subtances of the World
+tc.research_text.STONE_MANUFACTURE=Magic crusher
+thaumic_fifimize.research_page.STONE_MANUFACTURE.0=Drawing inspiration from the creations of ordinary people, you have crafted a more complex based subtances of the world.
 
 item.thaumic_fifimize.seal_copier.name=Seal Copier
 item.thaumic_fifimize.primordial_mote.name=Primordial Mote

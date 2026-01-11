@@ -2,7 +2,9 @@ package com.pickleaf.thaumic_fifimize.common;
 
 import com.pickleaf.thaumic_fifimize.Config;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
@@ -10,7 +12,10 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
+import thaumcraft.api.crafting.ShapelessArcaneRecipe;
+import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.common.config.ConfigResearch;
 import thaumcraft.api.golems.GolemHelper;
 import thaumcraft.api.blocks.BlocksTC;
 
@@ -19,14 +24,35 @@ public class RecipesTF {
     public static CrucibleRecipe primordialMote;
     public static InfusionRecipe primordialPearl;
     public static InfusionRecipe sealArcaneCraft;
+    // 石头复制配方
+    public static CrucibleRecipe stoneDuplication_1;
+    public static CrucibleRecipe stoneDuplication_2;
+    public static CrucibleRecipe stoneDuplication_3;
+    // 世界基质制造配方
+    public static ShapelessArcaneRecipe gravel;
+    public static ShapelessArcaneRecipe sand;
+    public static ShapedArcaneRecipe netherrack;
+    public static ShapedArcaneRecipe soulSand;
+    public static ShapedArcaneRecipe endStone;
 
     public static void init() {
+        initializeArcaneRecipes();
         initializeInfusionRecipes();
         initializeAlchemyRecipes();
     }
 
-    private static void initializeAlchemyRecipes() {
+    private static void initializeArcaneRecipes() {
+        // 世界基质制造配方
+        if (Config.STONE_MANUFACTURE) {
+            recipeStoneManuFfacture();
+        }
+    }
 
+    private static void initializeAlchemyRecipes() {
+        // 石头复制配方
+        if (Config.STONE_DUP) {
+            recipeStoneDuplication();
+        }
     }
 
     private static void initializeInfusionRecipes() {
@@ -89,5 +115,69 @@ public class RecipesTF {
                             new ItemStack(ItemsTC.salisMundus),
                             new ItemStack(ItemsTC.salisMundus),
                             new ItemStack(ItemsTC.salisMundus) });
+    }
+
+    private static void recipeStoneDuplication() {
+        stoneDuplication_1 = ThaumcraftApi.addCrucibleRecipe("STONE_DUP",
+                new ItemStack(Blocks.stone, 2, 1),
+                new ItemStack(Blocks.stone, 1, 1),
+                (new AspectList()).add(Aspect.EARTH, 2));
+        stoneDuplication_2 = ThaumcraftApi.addCrucibleRecipe("STONE_DUP",
+                new ItemStack(Blocks.stone, 2, 3),
+                new ItemStack(Blocks.stone, 1, 3),
+                (new AspectList()).add(Aspect.EARTH, 2));
+        stoneDuplication_3 = ThaumcraftApi.addCrucibleRecipe("STONE_DUP",
+                new ItemStack(Blocks.stone, 2, 5),
+                new ItemStack(Blocks.stone, 1, 5),
+                (new AspectList()).add(Aspect.EARTH, 2));
+    }
+
+    private static void recipeStoneManuFfacture() {
+        gravel = ThaumcraftApi.addShapelessArcaneCraftingRecipe("STONE_MANUFACTURE",
+                new ItemStack(Blocks.gravel, 3),
+                (new AspectList())
+                        .add(Aspect.ENTROPY, 1),
+                new Object[] {
+                        new ItemStack(Blocks.cobblestone),
+                        new ItemStack(Blocks.cobblestone),
+                        new ItemStack(Blocks.gravel),
+                        new ItemStack(Blocks.gravel),
+                        new ItemStack(Blocks.gravel) });
+        sand = ThaumcraftApi.addShapelessArcaneCraftingRecipe("STONE_MANUFACTURE",
+                new ItemStack(Blocks.sand, 5),
+                (new AspectList())
+                        .add(Aspect.ENTROPY, 1),
+                new Object[] {
+                        new ItemStack(Blocks.gravel),
+                        new ItemStack(Blocks.gravel),
+                        new ItemStack(Blocks.sand),
+                        new ItemStack(Blocks.sand),
+                        new ItemStack(Blocks.sand) });
+        netherrack = ThaumcraftApi.addArcaneCraftingRecipe("STONE_MANUFACTURE",
+                new ItemStack(Blocks.netherrack, 8),
+                (new AspectList())
+                        .add(Aspect.FIRE, 1)
+                        .add(Aspect.EARTH, 6),
+                new Object[] { "CCC", "CNC", "CCC",
+                        'C', Item.getItemFromBlock(Blocks.cobblestone),
+                        'N', Items.nether_wart });
+        soulSand = ThaumcraftApi.addArcaneCraftingRecipe("STONE_MANUFACTURE",
+                new ItemStack(Blocks.soul_sand, 8),
+                (new AspectList())
+                        .add(Aspect.ENTROPY, 2)
+                        .add(Aspect.WATER, 2)
+                        .add(Aspect.AIR, 2),
+                new Object[] { "SSS", "SNS", "SSS",
+                        'S', Item.getItemFromBlock(Blocks.sand),
+                        'N', Items.nether_wart });
+        endStone = ThaumcraftApi.addArcaneCraftingRecipe("STONE_MANUFACTURE",
+                new ItemStack(Blocks.end_stone, 8),
+                (new AspectList())
+                        .add(Aspect.AIR, 2)
+                        .add(Aspect.FIRE, 2)
+                        .add(Aspect.ENTROPY, 2),
+                new Object[] { "CCC", "CEC", "CCC",
+                        'C', Item.getItemFromBlock(Blocks.cobblestone),
+                        'E', Items.ender_pearl });
     }
 }
