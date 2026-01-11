@@ -23,7 +23,7 @@ public class EarlyConfigLoader {
             if (cfg.hasChanged())
                 cfg.save();
         } catch (Exception e) {
-            System.err.println("[ThaumicFifimize] Failed to load early config: " + e.getMessage());
+            ThaumicFifimize.printErr("Failed to load early config: " + e.getMessage());
         }
 
     }
@@ -35,6 +35,9 @@ public class EarlyConfigLoader {
         Config.FIX_SEALS_INTERACT_DOUBLE_CHEST = cfg.getBoolean("fixSealsInteractDoubleChest",
                 Configuration.CATEGORY_GENERAL, true,
                 "修复印记与大箱子交互时只作用于一半的漏洞");
+        Config.SEAL_USE_CAN_ACTIVATE_INFUSION = cfg.getBoolean("enableSealUseActivateInfusion",
+                Configuration.CATEGORY_GENERAL, true,
+                "启用\"操控印记：使用\"可以激活注魔合成");
         // 配方
         Config.PRIMORDIAL_PEARL_DUP = cfg.getBoolean("primordialPearlDuplicatiopn", Config.CATEGORY_RECIPE, true,
                 "启用元始珍珠复制配方");

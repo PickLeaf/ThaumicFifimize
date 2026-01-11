@@ -19,7 +19,9 @@ public class ThaumicFifimizeCoreMod implements IFMLLoadingPlugin {
         classes.add("com.pickleaf.thaumic_fifimize.core.SilverLeavesDropChanceTransformer");
         if (Config.FIX_SEALS_INTERACT_DOUBLE_CHEST)
             classes.add("com.pickleaf.thaumic_fifimize.core.InventoryUtilsTransformer");
-        return (String[])classes.toArray(new String[classes.size()]);
+        if (Config.SEAL_USE_CAN_ACTIVATE_INFUSION)
+            classes.add("com.pickleaf.thaumic_fifimize.core.SealUseTransformer");
+        return (String[]) classes.toArray(new String[classes.size()]);
     }
 
     @Override

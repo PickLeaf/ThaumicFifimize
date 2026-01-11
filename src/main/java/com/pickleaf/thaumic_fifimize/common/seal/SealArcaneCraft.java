@@ -110,14 +110,6 @@ public class SealArcaneCraft implements ISeal, IHasName {
         return null;
     }
 
-    private String getOwnerPlayerUUID(IGolemAPI golem) {
-        Entity entity = golem.getGolemEntity();
-        if (entity instanceof IEntityOwnable) {
-            return ((IEntityOwnable) entity).getOwnerId();
-        }
-        return null;
-    }
-
     private IInventory[] getInv(World world, BlockPos pos) {
         IInventory[] invs = new IInventory[6];
         int index = 0;
@@ -223,14 +215,11 @@ public class SealArcaneCraft implements ISeal, IHasName {
             return false;
         }
         // 检查玩家是否完成配方所需研究
-        GameProfile profile = MinecraftServer.getServer().getPlayerProfileCache()
-                .getProfileByUUID(UUID.fromString(getOwnerPlayerUUID(golem)));
-        if (profile == null
-                || profile.getName() == null) {
+        String playerName = com.pickleaf.thaumic_fifimize.core.HookHandler.getOwnerPlayerName(golem);
+        if (playerName == null) {
             task.setSuspended(true);
             return false;
         }
-        String playerName = profile.getName();
         String[] researchs = recipe.getResearch();
         for (String research : researchs) {
             if (research.isEmpty())

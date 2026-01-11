@@ -35,4 +35,8 @@ public class ThaumicFifimize {
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
+
+    public static void printErr(String err) {
+        System.err.println("[ThaumicFifimize] " + err);
+    }
 }

@@ -1,10 +1,12 @@
 package com.pickleaf.thaumic_fifimize.core;
+
 import net.minecraft.launchwrapper.IClassTransformer;
 
 import org.objectweb.asm.*;
 
+import com.pickleaf.thaumic_fifimize.ThaumicFifimize;
+
 public class InventoryUtilsTransformer implements IClassTransformer {
-    
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -16,7 +18,7 @@ public class InventoryUtilsTransformer implements IClassTransformer {
                 cr.accept(cv, 0);
                 return cw.toByteArray();
             } catch (Exception e) {
-                System.err.println("[ThaumicFifimize] Failed to transform class: " + transformedName);
+                ThaumicFifimize.printErr("Failed to transform class: " + transformedName);
                 e.printStackTrace();
                 return basicClass;
             }
@@ -37,16 +39,23 @@ public class InventoryUtilsTransformer implements IClassTransformer {
             if (name.equals("findFirstMatchFromFilter") &&
                     desc.equals(
                             "([Lnet/minecraft/item/ItemStack;ZLnet/minecraft/inventory/IInventory;Lnet/minecraft/util/EnumFacing;ZZZZZ)Lnet/minecraft/item/ItemStack;")) {
-                // public static ItemStack findFirstMatchFromFilter(ItemStack[] filters, boolean blacklist, IInventory inv, EnumFacing face, boolean ignoreDamage, boolean ignoreNBT, boolean useOre, boolean useMod, boolean leaveOne)
+                // public static ItemStack findFirstMatchFromFilter(ItemStack[] filters, boolean
+                // blacklist, IInventory inv, EnumFacing face, boolean ignoreDamage, boolean
+                // ignoreNBT, boolean useOre, boolean useMod, boolean leaveOne)
                 return new HeadInjectMethodVisitor(Opcodes.ASM5, mv, 2);
             } else if (name.equals("inventoryContainsAmount")) {
-                // public static int inventoryContainsAmount(IInventory inventory, ItemStack stack, EnumFacing side, boolean ignoreDamage, boolean ignoreNBT, boolean useOre, boolean useMod)
+                // public static int inventoryContainsAmount(IInventory inventory, ItemStack
+                // stack, EnumFacing side, boolean ignoreDamage, boolean ignoreNBT, boolean
+                // useOre, boolean useMod)
                 return new HeadInjectMethodVisitor(Opcodes.ASM5, mv, 0);
             } else if (name.equals("extractStack")) {
-                // public static ItemStack extractStack(IInventory inventory, ItemStack stack1, EnumFacing side, boolean ignoreDamage, boolean ignoreNBT, boolean useOre, boolean useMod, boolean doit)
+                // public static ItemStack extractStack(IInventory inventory, ItemStack stack1,
+                // EnumFacing side, boolean ignoreDamage, boolean ignoreNBT, boolean useOre,
+                // boolean useMod, boolean doit)
                 return new HeadInjectMethodVisitor(Opcodes.ASM5, mv, 0);
             } else if (name.equals("placeItemStackIntoInventory")) {
-                // public static ItemStack placeItemStackIntoInventory(ItemStack stack, IInventory inventory, EnumFacing side, boolean doit)
+                // public static ItemStack placeItemStackIntoInventory(ItemStack stack,
+                // IInventory inventory, EnumFacing side, boolean doit)
                 return new HeadInjectMethodVisitor(Opcodes.ASM5, mv, 1);
             }
 
@@ -72,7 +81,7 @@ public class InventoryUtilsTransformer implements IClassTransformer {
             mv.visitMethodInsn(
                     Opcodes.INVOKESTATIC,
                     "com/pickleaf/thaumic_fifimize/core/HookHandler", // 包名+类名
-                    "hookMethod", // 方法名
+                    "getDoubleChestInv", // 方法名
                     "(Lnet/minecraft/inventory/IInventory;)Lnet/minecraft/inventory/IInventory;", // 方法描述符
                     false // 非接口方法
             );
