@@ -9,3 +9,5 @@
 <br>Added the Duplicate method for Primordial Pearl
 - 添加了奥术合成印记
 <br>Added Arcane Craft Seal
+- <a href="https://www.mcmod.cn/item/30624.html">使用印记</a>现在可以激活注魔祭坛了
+<br>"Control Seal: Use" can activate infushion now.
