@@ -134,7 +134,7 @@ public class RecipesTF {
 
     private static void recipeStoneManuFfacture() {
         gravel = ThaumcraftApi.addShapelessArcaneCraftingRecipe("STONE_MANUFACTURE",
-                new ItemStack(Blocks.gravel, 3),
+                new ItemStack(Blocks.gravel, 5),
                 (new AspectList())
                         .add(Aspect.ENTROPY, 1),
                 new Object[] {
