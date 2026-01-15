@@ -11,8 +11,10 @@ public class Config {
     // 物品 Items
     public static boolean ITEM_SEAL_COPIER;
     public static boolean SEAL_ARCANE_CRAFT;
+    public static boolean SEAL_REQUEST;
     // 配方 Recipes
     public static boolean PRIMORDIAL_PEARL_DUP;
     public static boolean STONE_DUP;
-    public static boolean STONE_MANUFACTURE ;
+    public static boolean STONE_MANUFACTURE;
+    public static boolean MAGIC_PLANT;
 }

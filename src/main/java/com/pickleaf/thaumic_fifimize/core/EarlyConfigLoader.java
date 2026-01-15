@@ -39,7 +39,7 @@ public class EarlyConfigLoader {
                 Configuration.CATEGORY_GENERAL, true,
                 "启用\"操控印记：使用\"可以激活注魔合成");
         Config.SEAL_EMPTY_DUPLICATED_TASK = cfg.getBoolean("fixSealEmptyDuplicatedTask",
-                Configuration.CATEGORY_GENERAL, true,
+                Configuration.CATEGORY_GENERAL, false,
                 "修复\"操控印记：空置\"重复请求任务导致空任务的漏洞");
         // 配方
         Config.PRIMORDIAL_PEARL_DUP = cfg.getBoolean("primordialPearlDuplicatiopn", Config.CATEGORY_RECIPE, true,
@@ -48,10 +48,14 @@ public class EarlyConfigLoader {
                 "启用石头复制配方");
         Config.STONE_MANUFACTURE = cfg.getBoolean("stonesManufacture", Config.CATEGORY_RECIPE, true,
                 "启用世界基质制造配方");
+        Config.MAGIC_PLANT = cfg.getBoolean("magicPlants", Config.CATEGORY_RECIPE, true,
+                "启用魔法植物(烈焰草,水银花)配方");
         // 物品
         Config.ITEM_SEAL_COPIER = cfg.getBoolean("ItemSealCopier", Config.CATEGORY_ITEM, true,
                 "启用物品印记拓印器");
         Config.SEAL_ARCANE_CRAFT = cfg.getBoolean("SealArcaneCraft", Config.CATEGORY_ITEM, true,
                 "启用物品奥数合成印记");
+        Config.SEAL_REQUEST = cfg.getBoolean("SealRequest", Config.CATEGORY_ITEM, true,
+                "为\"高级操控印记：填充\"添加根据白名单请求物品供应的能力");
     }
 }

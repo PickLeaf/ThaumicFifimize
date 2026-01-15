@@ -34,6 +34,10 @@ public class RecipesTF {
     public static ShapedArcaneRecipe netherrack;
     public static ShapedArcaneRecipe soulSand;
     public static ShapedArcaneRecipe endStone;
+    // 魔法植物增生配方
+    public static InfusionRecipe shimmerleaf;
+    public static InfusionRecipe cinderpearl;
+    public static InfusionRecipe vishroom;
 
     public static void init() {
         initializeArcaneRecipes();
@@ -56,7 +60,7 @@ public class RecipesTF {
     }
 
     private static void initializeInfusionRecipes() {
-        if (Config.ITEM_SEAL_COPIER)
+        if (Config.ITEM_SEAL_COPIER) {
             sealCopier = ThaumcraftApi.addInfusionCraftingRecipe("SEAL_COPIER",
                     new ItemStack(ItemsTF.sealCopier), 1,
                     (new AspectList())
@@ -67,6 +71,7 @@ public class RecipesTF {
                             new ItemStack(ItemsTC.seals, 1, 0),
                             new ItemStack(ItemsTC.brain),
                             new ItemStack(ItemsTC.brain) });
+        }
         if (Config.PRIMORDIAL_PEARL_DUP) {
             primordialMote = ThaumcraftApi.addCrucibleRecipe("PRIMORDIAL_PEARL_DUP",
                     new ItemStack(ItemsTF.primordialMote, 8),
@@ -98,7 +103,7 @@ public class RecipesTF {
                             new ItemStack(ItemsTC.shard, 1, 6),
                             new ItemStack(ItemsTC.shard, 1, 7), });
         }
-        if (Config.SEAL_ARCANE_CRAFT)
+        if (Config.SEAL_ARCANE_CRAFT) {
             sealArcaneCraft = ThaumcraftApi.addInfusionCraftingRecipe("SEAL_ARCANE_CRAFT",
                     GolemHelper.getSealStack(SealsTF.sealArcaneCraft.getKey()), 3,
                     (new AspectList())
@@ -115,6 +120,11 @@ public class RecipesTF {
                             new ItemStack(ItemsTC.salisMundus),
                             new ItemStack(ItemsTC.salisMundus),
                             new ItemStack(ItemsTC.salisMundus) });
+        }
+        // 魔法植物增生配方
+        if (Config.MAGIC_PLANT) {
+            recipePlantHyperplasia();
+        }
     }
 
     private static void recipeStoneDuplication() {
@@ -179,5 +189,39 @@ public class RecipesTF {
                 new Object[] { "CCC", "CEC", "CCC",
                         'C', Item.getItemFromBlock(Blocks.cobblestone),
                         'E', Items.ender_pearl });
+    }
+
+    private static void recipePlantHyperplasia() {
+        shimmerleaf = ThaumcraftApi.addInfusionCraftingRecipe("MAGIC_PLANT",
+                new ItemStack(BlocksTC.shimmerleaf), 1,
+                (new AspectList())
+                        .add(Aspect.PLANT, 10)
+                        .add(Aspect.ENERGY, 8)
+                        .add(Aspect.AURA, 2),
+                new ItemStack(ItemsTC.quicksilver),
+                new Object[] {
+                        new ItemStack(ItemsTC.tallow),
+                        new ItemStack(ItemsTC.wandRods, 1, 0) });
+        cinderpearl = ThaumcraftApi.addInfusionCraftingRecipe("MAGIC_PLANT",
+                new ItemStack(BlocksTC.cinderpearl), 1,
+                (new AspectList())
+                        .add(Aspect.PLANT, 10)
+                        .add(Aspect.FIRE, 8)
+                        .add(Aspect.AURA, 2),
+                new ItemStack(Items.blaze_powder),
+                new Object[] {
+                        new ItemStack(ItemsTC.tallow),
+                        new ItemStack(ItemsTC.wandRods, 1, 0) });
+        vishroom = ThaumcraftApi.addInfusionCraftingRecipe("MAGIC_PLANT",
+                new ItemStack(BlocksTC.vishroom), 1,
+                (new AspectList())
+                        .add(Aspect.PLANT, 10)
+                        .add(Aspect.DEATH, 4)
+                        .add(Aspect.ENTROPY, 4)
+                        .add(Aspect.AURA, 2),
+                new ItemStack(Items.poisonous_potato),
+                new Object[] {
+                        new ItemStack(Items.dye, 1, 13),
+                        new ItemStack(ItemsTC.wandRods, 1, 0) });
     }
 }

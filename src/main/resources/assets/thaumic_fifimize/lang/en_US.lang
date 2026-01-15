@@ -21,6 +21,10 @@ tc.research_name.STONE_MANUFACTURE=Base Subtances of the World
 tc.research_text.STONE_MANUFACTURE=Magic crusher
 thaumic_fifimize.research_page.STONE_MANUFACTURE.0=Drawing inspiration from the creations of ordinary people, you have crafted a more complex based subtances of the world.
 
+tc.research_name.MAGIC_PLANT=Magic Plants
+tc.research_text.MAGIC_PLANT=25 Sun
+thaumic_fifimize.research_page.MAGIC_PLANT.0=By studying the internal structure of these magical plants in depth, you are confident that you can replicate them one-to-one.
+
 item.thaumic_fifimize.seal_copier.name=Seal Copier
 item.thaumic_fifimize.primordial_mote.name=Primordial Mote
 item.seal.arcane_craft.name=Control Seal: Arcane Craft

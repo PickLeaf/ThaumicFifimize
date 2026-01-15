@@ -21,6 +21,10 @@ tc.research_name.STONE_MANUFACTURE=世界基质制造
 tc.research_text.STONE_MANUFACTURE=魔法粉碎机
 thaumic_fifimize.research_page.STONE_MANUFACTURE.0=借助从凡夫俗子的造物中汲取的灵感，更复杂的世界基质被你制造了出来。
 
+tc.research_name.MAGIC_PLANT=魔法植物
+tc.research_text.MAGIC_PLANT=25阳光
+thaumic_fifimize.research_page.MAGIC_PLANT.0=通过深入研究这些魔法植物的内部构造，你有信心能够一比一把它们复刻出来。
+
 item.thaumic_fifimize.seal_copier.name=印记拓印器
 item.thaumic_fifimize.primordial_mote.name=元始尘埃
 item.seal.arcane_craft.name=操控印记：奥术合成

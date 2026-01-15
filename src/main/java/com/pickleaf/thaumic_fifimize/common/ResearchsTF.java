@@ -6,9 +6,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.golems.GolemHelper;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
+import thaumcraft.api.research.ScanBlock;
+import thaumcraft.api.research.ScanItem;
+import thaumcraft.api.research.ScanningManager;
 
 public class ResearchsTF {
     public static void init() {
@@ -108,6 +113,31 @@ public class ResearchsTF {
                             new ResearchPage(RecipesTF.soulSand),
                             new ResearchPage(RecipesTF.endStone) })
                     .setParents(new String[] { "ALCHEMICALMANUFACTURE" }).registerResearchItem();
+        }
+        if (Config.MAGIC_PLANT) {
+            ScanningManager.addScannableThing(new ScanItem("!SHIMMERLEAF", new ItemStack(BlocksTC.shimmerleaf)));
+            ScanningManager.addScannableThing(new ScanBlock("!SHIMMERLEAF", BlocksTC.shimmerleaf));
+            ScanningManager.addScannableThing(new ScanItem("!CINDERPEARL", new ItemStack(BlocksTC.cinderpearl)));
+            ScanningManager.addScannableThing(new ScanBlock("!CINDERPEARL", BlocksTC.cinderpearl));
+            ScanningManager.addScannableThing(new ScanItem("!VISHROOM", new ItemStack(BlocksTC.vishroom)));
+            ScanningManager.addScannableThing(new ScanBlock("!VISHROOM", BlocksTC.vishroom));
+            (new ResearchItem("MAGIC_PLANT", "ALCHEMY",
+                    (new AspectList())
+                            .add(Aspect.PLANT, 10)
+                            .add(Aspect.AURA, 4),
+                    -7, -4, 1,
+                    new Object[] {
+                            new ItemStack(BlocksTC.shimmerleaf),
+                            new ItemStack(BlocksTC.cinderpearl),
+                            new ItemStack(BlocksTC.vishroom) }))
+                    .setPages(new ResearchPage[] {
+                            new ResearchPage("thaumic_fifimize.research_page.MAGIC_PLANT.0"),
+                            new ResearchPage(RecipesTF.shimmerleaf),
+                            new ResearchPage(RecipesTF.cinderpearl),
+                            new ResearchPage(RecipesTF.vishroom) })
+                    .setParents(new String[] { "ETHEREALBLOOM", "ROD_greatwood", "!SHIMMERLEAF", "!CINDERPEARL",
+                            "!VISHROOM" })
+                    .setSecondary().registerResearchItem();
         }
     }
 }

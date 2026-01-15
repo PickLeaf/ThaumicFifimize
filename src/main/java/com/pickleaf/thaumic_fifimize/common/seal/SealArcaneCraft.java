@@ -3,15 +3,12 @@ package com.pickleaf.thaumic_fifimize.common.seal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
 import com.pickleaf.thaumic_fifimize.ThaumicFifimize;
 import com.pickleaf.thaumic_fifimize.common.IHasName;
 
 import net.minecraft.block.BlockChest;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -20,7 +17,6 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
@@ -54,7 +50,7 @@ public class SealArcaneCraft implements ISeal, IHasName {
     int delay = (new Random(System.nanoTime())).nextInt(30);
     int cache = -1;
 
-    ResourceLocation icon = new ResourceLocation(ThaumicFifimize.MODID, "items/seal_arcane_craft");
+    public static ResourceLocation icon = new ResourceLocation(ThaumicFifimize.MODID, "items/seal_arcane_craft");
 
     public SealArcaneCraft() {
         @SuppressWarnings("rawtypes")
@@ -75,13 +71,6 @@ public class SealArcaneCraft implements ISeal, IHasName {
     public String getKey() {
         return ThaumicFifimize.MODID + ":" + getName();
     }
-
-    // private class FakeContainer extends Container {
-    // @Override
-    // public boolean canInteractWith(EntityPlayer playerIn) {
-    // return false;
-    // }
-    // }
 
     private InventoryCrafting getWorkbenchInventory(World world, BlockPos pos) {
         TileEntity te = world.getTileEntity(pos);
@@ -310,7 +299,7 @@ public class SealArcaneCraft implements ISeal, IHasName {
     }
 
     public ResourceLocation getSealIcon() {
-        return this.icon;
+        return SealArcaneCraft.icon;
     }
 
     public int[] getGuiCategories() {
