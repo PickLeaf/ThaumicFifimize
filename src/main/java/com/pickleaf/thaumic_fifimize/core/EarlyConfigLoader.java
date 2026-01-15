@@ -38,11 +38,16 @@ public class EarlyConfigLoader {
         Config.SEAL_USE_CAN_ACTIVATE_INFUSION = cfg.getBoolean("enableSealUseActivateInfusion",
                 Configuration.CATEGORY_GENERAL, true,
                 "启用\"操控印记：使用\"可以激活注魔合成");
+        Config.SEAL_EMPTY_DUPLICATED_TASK = cfg.getBoolean("fixSealEmptyDuplicatedTask",
+                Configuration.CATEGORY_GENERAL, true,
+                "修复\"操控印记：空置\"重复请求任务导致空任务的漏洞");
         // 配方
         Config.PRIMORDIAL_PEARL_DUP = cfg.getBoolean("primordialPearlDuplicatiopn", Config.CATEGORY_RECIPE, true,
                 "启用元始珍珠复制配方");
         Config.STONE_DUP = cfg.getBoolean("stonesDuplicatiopn", Config.CATEGORY_RECIPE, true,
                 "启用石头复制配方");
+        Config.STONE_MANUFACTURE = cfg.getBoolean("stonesManufacture", Config.CATEGORY_RECIPE, true,
+                "启用世界基质制造配方");
         // 物品
         Config.ITEM_SEAL_COPIER = cfg.getBoolean("ItemSealCopier", Config.CATEGORY_ITEM, true,
                 "启用物品印记拓印器");

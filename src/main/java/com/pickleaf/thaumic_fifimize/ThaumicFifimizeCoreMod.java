@@ -21,6 +21,8 @@ public class ThaumicFifimizeCoreMod implements IFMLLoadingPlugin {
             classes.add("com.pickleaf.thaumic_fifimize.core.InventoryUtilsTransformer");
         if (Config.SEAL_USE_CAN_ACTIVATE_INFUSION)
             classes.add("com.pickleaf.thaumic_fifimize.core.SealUseTransformer");
+        if (Config.SEAL_EMPTY_DUPLICATED_TASK)
+            classes.add("com.pickleaf.thaumic_fifimize.core.SealEmptyTransformer");
         return (String[]) classes.toArray(new String[classes.size()]);
     }
 

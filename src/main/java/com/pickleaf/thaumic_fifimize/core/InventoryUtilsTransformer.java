@@ -74,10 +74,10 @@ public class InventoryUtilsTransformer implements IClassTransformer {
         @Override
         public void visitCode() {
             super.visitCode();
-            // 注入：inv = hookMethod(inv)
+            // 注入：inv = getDoubleChestInv(inv)
             // aload：加载局部变量（inv）到栈顶
             mv.visitVarInsn(Opcodes.ALOAD, inventoryVarIndex);
-            // invokestatic：调用静态方法hookMethod
+            // invokestatic：调用静态方法getDoubleChestInv
             mv.visitMethodInsn(
                     Opcodes.INVOKESTATIC,
                     "com/pickleaf/thaumic_fifimize/core/HookHandler", // 包名+类名

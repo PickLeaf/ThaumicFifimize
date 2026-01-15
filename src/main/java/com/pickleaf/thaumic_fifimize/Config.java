@@ -3,13 +3,16 @@ package com.pickleaf.thaumic_fifimize;
 public class Config {
     public static final String CATEGORY_ITEM = "items";
     public static final String CATEGORY_RECIPE = "recipes";
-
-    public static int SILVERSAPLING_DROPCHANCE = 100;
-    public static boolean FIX_SEALS_INTERACT_DOUBLE_CHEST = true;
-    public static boolean SEAL_USE_CAN_ACTIVATE_INFUSION = true;
-    public static boolean ITEM_SEAL_COPIER = true;
-    public static boolean SEAL_ARCANE_CRAFT = true;
-    public static boolean PRIMORDIAL_PEARL_DUP = true;
-    public static boolean STONE_DUP = true;
-    public static boolean STONE_MANUFACTURE = true;
+    // 漏洞修复或优化 Bug fixes or optimizations
+    public static int SILVERSAPLING_DROPCHANCE;
+    public static boolean FIX_SEALS_INTERACT_DOUBLE_CHEST;
+    public static boolean SEAL_USE_CAN_ACTIVATE_INFUSION;
+    public static boolean SEAL_EMPTY_DUPLICATED_TASK;
+    // 物品 Items
+    public static boolean ITEM_SEAL_COPIER;
+    public static boolean SEAL_ARCANE_CRAFT;
+    // 配方 Recipes
+    public static boolean PRIMORDIAL_PEARL_DUP;
+    public static boolean STONE_DUP;
+    public static boolean STONE_MANUFACTURE ;
 }
