@@ -7,7 +7,6 @@ public class Config {
     public static int SILVERSAPLING_DROPCHANCE;
     public static boolean FIX_SEALS_INTERACT_DOUBLE_CHEST;
     public static boolean SEAL_USE_CAN_ACTIVATE_INFUSION;
-    public static boolean SEAL_EMPTY_DUPLICATED_TASK;
     // 物品 Items
     public static boolean ITEM_SEAL_COPIER;
     public static boolean SEAL_ARCANE_CRAFT;

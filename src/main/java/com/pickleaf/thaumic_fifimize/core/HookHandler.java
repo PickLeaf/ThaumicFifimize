@@ -1,6 +1,7 @@
 package com.pickleaf.thaumic_fifimize.core;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.UUID;
 
 import com.mojang.authlib.GameProfile;
@@ -17,6 +18,8 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import thaumcraft.api.golems.IGolemAPI;
+import thaumcraft.api.golems.tasks.Task;
+import thaumcraft.common.entities.construct.golem.tasks.TaskHandler;
 
 public class HookHandler {
     public static IInventory getDoubleChestInv(IInventory inv) {
@@ -41,12 +44,5 @@ public class HookHandler {
             }
         }
         return "FakeThaumcraftGolem";
-    }
-
-    public static ItemStack tickSealEmpty(ItemStack stack, HashMap<Integer, ItemStack> cache) {
-        if (cache.containsValue(stack)){
-            return null;
-        }
-        return stack;
     }
 }
