@@ -2,7 +2,6 @@ package com.pickleaf.thaumic_fifimize.common;
 
 import com.pickleaf.thaumic_fifimize.Config;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -15,7 +14,6 @@ import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
-import thaumcraft.common.config.ConfigResearch;
 import thaumcraft.api.golems.GolemHelper;
 import thaumcraft.api.blocks.BlocksTC;
 
