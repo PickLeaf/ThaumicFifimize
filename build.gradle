@@ -21,7 +21,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "0.7"
+version = "0.7.1"
 group= "com.pickleaf.thaumic_fifimize"
 archivesBaseName = "ThaumicFifimize"
 sourceCompatibility = targetCompatibility = '1.8'

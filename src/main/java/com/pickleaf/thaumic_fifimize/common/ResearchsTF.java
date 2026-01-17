@@ -1,5 +1,7 @@
 package com.pickleaf.thaumic_fifimize.common;
 
+import java.util.Arrays;
+
 import com.pickleaf.thaumic_fifimize.Config;
 
 import net.minecraft.init.Blocks;
@@ -8,6 +10,7 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.golems.GolemHelper;
+import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
 import thaumcraft.api.research.ScanBlock;
@@ -137,6 +140,24 @@ public class ResearchsTF {
                     .setParents(new String[] { "ETHEREALBLOOM", "ROD_greatwood", "!SHIMMERLEAF", "!CINDERPEARL",
                             "!VISHROOM" })
                     .setSecondary().registerResearchItem();
+        }
+        // 银树炼水银配方
+        if (Config.QUICKSILVER) {
+            ResearchItem pureMetal = ResearchCategories.getResearch("PUREMETAL");
+            ResearchPage[] oldPages = pureMetal.getPages();
+            ResearchPage[] pages = Arrays.copyOf(oldPages, oldPages.length + 1);
+            pages[oldPages.length] = new ResearchPage(RecipesTF.quicksilver);
+            pureMetal.setPages(pages);
+        }
+        // 矿物质复制配方
+        if (Config.MINERAL_COPY) {
+            ResearchItem alchemicalDup = ResearchCategories.getResearch("ALCHEMICALDUPLICATION");
+            ResearchPage[] oldPages = alchemicalDup.getPages();
+            ResearchPage[] pages = Arrays.copyOf(oldPages, oldPages.length + 3);
+            pages[oldPages.length] = new ResearchPage(RecipesTF.redstone);
+            pages[oldPages.length + 1] = new ResearchPage(RecipesTF.lapisLazuli);
+            pages[oldPages.length + 2] = new ResearchPage(RecipesTF.quartz);
+            alchemicalDup.setPages(pages);
         }
     }
 }

@@ -53,6 +53,9 @@ public class SealFillAdvancedRequest extends SealFillAdvanced {
                 int counts = InventoryUtils.inventoryContainsAmount(
                         inv, stack, side, ignoreDamage, ignoreNBT, useOre, useMod);
                 if (counts < stack.stackSize) {
+                    if (!this.props[0].value){
+                        stack.setItemDamage(32767);
+                    }
                     GolemHelper.requestProvisioning(golem.getGolemWorld(), sealEntity, stack);
                 }
             }

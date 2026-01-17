@@ -47,6 +47,10 @@ public class EarlyConfigLoader {
                 "启用世界基质制造配方");
         Config.MAGIC_PLANT = cfg.getBoolean("magicPlants", Config.CATEGORY_RECIPE, true,
                 "启用魔法植物(烈焰草,水银花)配方");
+        Config.QUICKSILVER = cfg.getBoolean("silverwoodLog2Quicksilver", Config.CATEGORY_RECIPE, true,
+                "启用银树原木炼水银配方");
+        Config.MINERAL_COPY = cfg.getBoolean("mineralsCopy", Config.CATEGORY_RECIPE, true,
+                "启用矿物质复制配方");
         // 物品
         Config.ITEM_SEAL_COPIER = cfg.getBoolean("ItemSealCopier", Config.CATEGORY_ITEM, true,
                 "启用物品印记拓印器");

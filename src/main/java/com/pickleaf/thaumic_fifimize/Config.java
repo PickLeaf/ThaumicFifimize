@@ -16,4 +16,6 @@ public class Config {
     public static boolean STONE_DUP;
     public static boolean STONE_MANUFACTURE;
     public static boolean MAGIC_PLANT;
+    public static boolean QUICKSILVER;
+    public static boolean MINERAL_COPY;
 }

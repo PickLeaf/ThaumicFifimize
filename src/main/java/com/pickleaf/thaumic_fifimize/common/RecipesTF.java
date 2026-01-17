@@ -36,6 +36,12 @@ public class RecipesTF {
     public static InfusionRecipe shimmerleaf;
     public static InfusionRecipe cinderpearl;
     public static InfusionRecipe vishroom;
+    // 银树炼水银配方
+    public static CrucibleRecipe quicksilver;
+    // 矿物质复制配方
+    public static CrucibleRecipe redstone;
+    public static CrucibleRecipe lapisLazuli;
+    public static CrucibleRecipe quartz;
 
     public static void init() {
         initializeArcaneRecipes();
@@ -54,6 +60,34 @@ public class RecipesTF {
         // 石头复制配方
         if (Config.STONE_DUP) {
             recipeStoneDuplication();
+        }
+        // 银树炼水银配方
+        if (Config.QUICKSILVER) {
+            quicksilver = ThaumcraftApi.addCrucibleRecipe("PUREMETAL",
+                    new ItemStack(ItemsTC.quicksilver),
+                    new ItemStack(Item.getItemFromBlock(BlocksTC.log), 1, 3),
+                    (new AspectList())
+                            .add(Aspect.FIRE, 3)
+                            .add(Aspect.ORDER, 1));
+        }
+        // 矿物质复制配方
+        if (Config.MINERAL_COPY) {
+            redstone = ThaumcraftApi.addCrucibleRecipe("ALCHEMICALDUPLICATION",
+                    new ItemStack(Items.redstone, 2),
+                    new ItemStack(Items.redstone),
+                    (new AspectList())
+                            .add(Aspect.ENERGY, 2));
+            lapisLazuli = ThaumcraftApi.addCrucibleRecipe("ALCHEMICALDUPLICATION",
+                    new ItemStack(Items.dye, 2, 4),
+                    new ItemStack(Items.dye, 1, 4),
+                    (new AspectList())
+                            .add(Aspect.SENSES, 1));
+            quartz = ThaumcraftApi.addCrucibleRecipe("ALCHEMICALDUPLICATION",
+                    new ItemStack(Items.quartz, 2),
+                    new ItemStack(Items.quartz),
+                    (new AspectList())
+                            .add(Aspect.ENERGY, 1)
+                            .add(Aspect.CRYSTAL, 1));
         }
     }
 
