@@ -65,28 +65,33 @@ public class InventoryUtilsTransformer implements IClassTransformer {
 
     private static class HeadInjectMethodVisitor extends MethodVisitor {
         private int inventoryVarIndex;
+        private boolean injected;
 
         public HeadInjectMethodVisitor(int api, MethodVisitor mv, int inventoryVarIndex) {
             super(api, mv);
             this.inventoryVarIndex = inventoryVarIndex;
+            this.injected = false;
         }
 
         @Override
         public void visitCode() {
+            if (!injected) {
+                // 注入：inv = getDoubleChestInv(inv)
+                // aload：加载局部变量（inv）到栈顶
+                mv.visitVarInsn(Opcodes.ALOAD, inventoryVarIndex);
+                // invokestatic：调用静态方法getDoubleChestInv
+                mv.visitMethodInsn(
+                        Opcodes.INVOKESTATIC,
+                        "com/pickleaf/thaumic_fifimize/core/HookHandler", // 包名+类名
+                        "getDoubleChestInv", // 方法名
+                        "(Lnet/minecraft/inventory/IInventory;)Lnet/minecraft/inventory/IInventory;", // 方法描述符
+                        false // 非接口方法
+                );
+                // astore：将栈顶的返回值存回局部变量（覆盖原inv）
+                mv.visitVarInsn(Opcodes.ASTORE, inventoryVarIndex);
+                injected = true;
+            }
             super.visitCode();
-            // 注入：inv = getDoubleChestInv(inv)
-            // aload：加载局部变量（inv）到栈顶
-            mv.visitVarInsn(Opcodes.ALOAD, inventoryVarIndex);
-            // invokestatic：调用静态方法getDoubleChestInv
-            mv.visitMethodInsn(
-                    Opcodes.INVOKESTATIC,
-                    "com/pickleaf/thaumic_fifimize/core/HookHandler", // 包名+类名
-                    "getDoubleChestInv", // 方法名
-                    "(Lnet/minecraft/inventory/IInventory;)Lnet/minecraft/inventory/IInventory;", // 方法描述符
-                    false // 非接口方法
-            );
-            // astore：将栈顶的返回值存回局部变量（覆盖原inv）
-            mv.visitVarInsn(Opcodes.ASTORE, inventoryVarIndex);
         }
     }
 }
