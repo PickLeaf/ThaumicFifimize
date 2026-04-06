@@ -2,6 +2,7 @@ package com.pickleaf.thaumic_fifimize;
 
 public class Config {
     public static final String CATEGORY_ITEM = "items";
+    public static final String CATEGORY_BLOCK = "blocks";
     public static final String CATEGORY_RECIPE = "recipes";
     // 漏洞修复或优化 Bug fixes or optimizations
     public static int SILVERSAPLING_DROPCHANCE;
@@ -19,4 +20,6 @@ public class Config {
     public static boolean MAGIC_PLANT;
     public static boolean QUICKSILVER;
     public static boolean MINERAL_COPY;
+    // 方块 blocks
+    public static boolean LAMP_CRYSTAL;
 }

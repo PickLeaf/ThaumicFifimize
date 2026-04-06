@@ -159,5 +159,25 @@ public class ResearchsTF {
             pages[oldPages.length + 2] = new ResearchPage(RecipesTF.quartz);
             alchemicalDup.setPages(pages);
         }
+        if (Config.LAMP_CRYSTAL) {
+            (new ResearchItem("LAMP_CRYSTAL", "ARTIFICE",
+                    (new AspectList())
+                            .add(Aspect.CRYSTAL, 6)
+                            .add(Aspect.LIGHT, 3)
+                            .add(Aspect.LIFE, 3)
+                            .add(Aspect.ENERGY, 3),
+                    -5, 0, 2,
+                    new Object[] { new ItemStack(BlocksTF.lamp_crystal) }))
+                    .setPages(
+                            new ResearchPage[] {
+                                    new ResearchPage(
+                                            "thaumic_fifimize.research_page.LAMP_CRYSTAL.0"),
+                                    new ResearchPage(RecipesTF.lamp_crystal) })
+                    .setHidden()
+                    .setParentsHidden(new String[] { "INFUSION" })
+                    .setParents(
+                            new String[] { "ARCANELAMP", "!vitreus" })
+                    .registerResearchItem();
+        }
     }
 }

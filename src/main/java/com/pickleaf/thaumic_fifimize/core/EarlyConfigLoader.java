@@ -61,5 +61,8 @@ public class EarlyConfigLoader {
                 "启用物品奥数合成印记");
         Config.SEAL_REQUEST = cfg.getBoolean("SealRequest", Config.CATEGORY_ITEM, true,
                 "为\"高级操控印记：填充\"添加根据白名单请求物品供应的能力");
+        // 方块
+        Config.LAMP_CRYSTAL = cfg.getBoolean("LampCrystal", Config.CATEGORY_BLOCK, true,
+                "启用结晶灯");
     }
 }

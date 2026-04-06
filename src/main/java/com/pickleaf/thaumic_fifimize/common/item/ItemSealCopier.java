@@ -2,7 +2,7 @@
  *  Thaumic Augmentation
  *  Copyright (c) 2019 TheCodex6824.
  *
- *  This file is part of Thaumic Augmentation.
+ *  This file is part of Thaumic Augmentation.(Modified by PickLeaf, to fit 1.8.9)
  *
  *  Thaumic Augmentation is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by

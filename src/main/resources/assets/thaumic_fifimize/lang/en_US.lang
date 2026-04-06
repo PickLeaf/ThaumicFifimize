@@ -28,3 +28,8 @@ thaumic_fifimize.research_page.MAGIC_PLANT.0=By studying the internal structure 
 item.thaumic_fifimize.seal_copier.name=Seal Copier
 item.thaumic_fifimize.primordial_mote.name=Primordial Mote
 item.seal.arcane_craft.name=Control Seal: Arcane Craft
+
+tile.thaumic_fifimize.lamp_crystal.name=Lamp of Crystal
+tc.research_name.LAMP_CRYSTAL=Lamp of Crystal
+tc.research_text.LAMP_CRYSTAL=Materialized Aura
+thaumic_fifimize.research_page.LAMP_CRYSTAL.0=The growth rate of vis crystals is maddeningly slow, and the Lamp of Crystal is the key to solving such a problem.<BR>By supplying this lamp with Vitreus essentia, the vis crystals within a 3x3x3 range centered on it will grow faster.

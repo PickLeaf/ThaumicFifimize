@@ -16,12 +16,14 @@ import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.golems.GolemHelper;
 import thaumcraft.api.blocks.BlocksTC;
+import thaumcraft.common.lib.utils.Utils;
 
 public class RecipesTF {
     public static InfusionRecipe sealCopier;
     public static CrucibleRecipe primordialMote;
     public static InfusionRecipe primordialPearl;
     public static InfusionRecipe sealArcaneCraft;
+    public static InfusionRecipe lamp_crystal;
     // 石头复制配方
     public static CrucibleRecipe stoneDuplication_1;
     public static CrucibleRecipe stoneDuplication_2;
@@ -152,6 +154,23 @@ public class RecipesTF {
                             new ItemStack(ItemsTC.salisMundus),
                             new ItemStack(ItemsTC.salisMundus),
                             new ItemStack(ItemsTC.salisMundus) });
+        }
+        if (Config.LAMP_CRYSTAL) {
+            lamp_crystal = ThaumcraftApi.addInfusionCraftingRecipe("LAMP_CRYSTAL",
+                    new ItemStack(BlocksTF.lamp_crystal), 4,
+                    (new AspectList())
+                            .add(Aspect.CRYSTAL, 16)
+                            .add(Aspect.LIGHT, 8)
+                            .add(Aspect.LIFE, 8)
+                            .add(Aspect.ENERGY, 8),
+                    new ItemStack(BlocksTC.lampArcane),
+                    new Object[] {
+                            new ItemStack(Items.gold_ingot),
+                            Utils.makeShard(Aspect.CRYSTAL),
+                            "shardWater",
+                            new ItemStack(Items.gold_ingot),
+                            Utils.makeShard(Aspect.CRYSTAL),
+                            "shardWater" });
         }
         // 魔法植物增生配方
         if (Config.MAGIC_PLANT) {

@@ -1,9 +1,12 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.gradle.enabled": false,
+    "java.import.gradle.wrapper.enabled": true,
     "java.project.referencedLibraries": [
-        "libs/**/*.jar",
-        "libs/Automagy-1.8.9-2.0.3.jar",
-        "libs/Thaumcraft-1.8.9-5.2.4.jar",
-    ]
+        "build/tmp/recompileMc/sources",
+        "libs/Thaumcraft-1.8.9-5.2.4.jar"
+    ],
+    "java.import.gradle.java.home": "D:\\Java\\jdk8.0.482+Azul_Zulu8.92.0.21",
+    "java.project.sourcePaths": []
 }
