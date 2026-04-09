@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.pickleaf.thaumic_fifimize.ThaumicFifimize;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,6 +47,8 @@ public class TileLampCrystal extends TileThaumcraft implements IEssentiaTranspor
         this.lastMetadata = 0;
         this.checklist = new ArrayList<BlockPos>();
         this.drawDelay = 0;
+        this.reserve = false;
+        this.charges = 0;
     }
 
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
@@ -66,6 +70,8 @@ public class TileLampCrystal extends TileThaumcraft implements IEssentiaTranspor
                     this.reserve = false;
                     this.markDirty();
                     this.worldObj.markBlockForUpdate(this.getPos());
+                } else if (this.gettingPower()) {
+                    return;
                 } else if (this.drawEssentia()) {
                     this.charges = 100;
                     this.markDirty();
