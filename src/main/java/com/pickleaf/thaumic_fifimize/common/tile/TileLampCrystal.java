@@ -2,11 +2,8 @@ package com.pickleaf.thaumic_fifimize.common.tile;
 
 import thaumcraft.common.blocks.world.ore.BlockCrystal;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import com.pickleaf.thaumic_fifimize.ThaumicFifimize;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -47,8 +44,6 @@ public class TileLampCrystal extends TileThaumcraft implements IEssentiaTranspor
         this.lastMetadata = 0;
         this.checklist = new ArrayList<BlockPos>();
         this.drawDelay = 0;
-        this.reserve = false;
-        this.charges = 0;
     }
 
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
@@ -70,8 +65,6 @@ public class TileLampCrystal extends TileThaumcraft implements IEssentiaTranspor
                     this.reserve = false;
                     this.markDirty();
                     this.worldObj.markBlockForUpdate(this.getPos());
-                } else if (this.gettingPower()) {
-                    return;
                 } else if (this.drawEssentia()) {
                     this.charges = 100;
                     this.markDirty();
@@ -83,13 +76,13 @@ public class TileLampCrystal extends TileThaumcraft implements IEssentiaTranspor
                         this.worldObj.setBlockState(this.pos,
                                 this.worldObj.getBlockState(this.getPos()).withProperty(IBlockEnabled.ENABLED,
                                         false),
-                                3);
+                                2);
                     }
                 } else if (!this.gettingPower() && !BlockStateUtils.isEnabled(this.getBlockMetadata())) {
                     this.worldObj.setBlockState(this.pos,
                             this.worldObj.getBlockState(this.getPos()).withProperty(IBlockEnabled.ENABLED,
                                     true),
-                            3);
+                            2);
                 }
             }
 
