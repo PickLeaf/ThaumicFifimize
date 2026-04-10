@@ -11,6 +11,10 @@
 <br>"Control Seal: Use" can activate infushion now.
 - 为[高级操控印记:填充](https://www.mcmod.cn/item/30615.html)添加根据白名单请求物品供应的能力。
 <br>Add the ability for "Advanced Control Seal: Store" to request provisioning from whitelist.
+- 现在用法杖从魔力结晶方块收获碎片时总是会保留一个。
+<br>When using a wand to harvest shards from a vis crystal block, one is always retained now.
+- 添加了加速魔力结晶生长的结晶灯。
+<br>Added Lamp of Crystal that accelerates the growth of vis crystals.
 - 为以下物品添加了配方：
 <br>Added Recipes for those items:
 <br>元始珍珠(Primordial Pearl), 安山岩(Andestie), 花岗岩(Granite), 闪长岩(Diorite), 沙砾(Gravel), 沙子(Sand), 下界岩(Netherrack), 灵魂沙(Soul Sand), 末地石(End Stone), 水银花(Shimmerleaf), 烈焰草(Cinderpearl), 纤毛菇(Vishroom), 红石(Redstone), 青金石(Lapis Lazuli), 石英(Quartz), 水银(QuickSilver)
